@@ -1,0 +1,7 @@
+# Function reference
+
+## Docstring Renderers
+
+| | |
+| --- | --- |
+| [MdRenderer](MdRenderer.qmd#quartodoc.MdRenderer) | Render docstrings to markdown. |

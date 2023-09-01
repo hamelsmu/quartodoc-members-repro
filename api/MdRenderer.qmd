@@ -1,0 +1,67 @@
+# MdRenderer { #quartodoc.MdRenderer }
+
+`MdRenderer(self, header_level=1, show_signature=True, show_signature_annotations=False, display_name='relative', hook_pre=None, render_interlinks=False)`
+
+Render docstrings to markdown.
+
+## Parameters
+
+| Name                         | Type   | Description                                                                                                                                                                                                                                                                         | Default      |
+|------------------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
+| `header_level`               | int    | The level of the header (e.g. 1 is the biggest).                                                                                                                                                                                                                                    | `1`          |
+| `show_signature`             | bool   | Whether to show the function signature.                                                                                                                                                                                                                                             | `True`       |
+| `show_signature_annotations` | bool   | Whether to show annotations in the function signature.                                                                                                                                                                                                                              | `False`      |
+| `display_name`               | str    | The default name shown for documented functions. Either "name", "relative", "full", or "canonical". These options range from just the function name, to its full path relative to its package, to including the package name, to its the its full path relative to its .__module__. | `'relative'` |
+
+## Examples
+
+```python
+>>> from quartodoc import MdRenderer, get_object
+>>> renderer = MdRenderer(header_level=2)
+>>> f = get_object("quartodoc", "get_object")
+>>> print(renderer.render(f)[:81])
+## get_object
+`get_object(module: str, object_name: str, parser: str = 'numpy')`
+```
+
+## Attributes
+
+| Name | Description |
+| --- | --- |
+| [style](#quartodoc.MdRenderer.style) | str(object='') -> str |
+
+## Methods
+
+| Name | Description |
+| --- | --- |
+| [render](#quartodoc.MdRenderer.render) | Return a string representation of an object, or layout element. |
+| [render_annotation](#quartodoc.MdRenderer.render_annotation) | Special hook for rendering a type annotation. |
+| [render_header](#quartodoc.MdRenderer.render_header) | Render the header of a docstring, including any anchors. |
+| [summarize](#quartodoc.MdRenderer.summarize) | Produce a summary table. |
+
+### render { #quartodoc.MdRenderer.render }
+
+`MdRenderer.render(self, el)`
+
+Return a string representation of an object, or layout element.
+
+### render_annotation { #quartodoc.MdRenderer.render_annotation }
+
+`MdRenderer.render_annotation(self, el)`
+
+#### Parameters
+
+el:
+    An object representing a type annotation.
+
+### render_header { #quartodoc.MdRenderer.render_header }
+
+`MdRenderer.render_header(self, el)`
+
+Render the header of a docstring, including any anchors.
+
+### summarize { #quartodoc.MdRenderer.summarize }
+
+`MdRenderer.summarize(self, obj)`
+
+Produce a summary table.
