@@ -1,0 +1,32 @@
+project:
+  type: website
+  output-dir: _build
+
+metadata-files:
+  - api/_sidebar.yml
+
+website:
+  title: "quartodoc"
+  page-navigation: true
+  navbar:
+    left:
+      - href: api/
+        text: Reference
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+quartodoc:
+  dir: api
+  package: quartodoc
+  sidebar: "api/_sidebar.yml"
+  sections:
+    - title: Docstring Renderers
+      options:
+        dynamic: true
+      contents:
+        - name: MdRenderer
